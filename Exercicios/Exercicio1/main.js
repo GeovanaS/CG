@@ -192,10 +192,10 @@ function updateAngle(event, ui) {
     sphereTranslation[0] = Math.sin(senS);
     sphereTranslation[1] = Math.cos(cosS);
   
-    coneTranslation[1] = Math.sin(senCone);
+    coneTranslation[2] = Math.sin(senCone);
     coneTranslation[3] = Math.cos(cosCone);
   
-    cubeTranslation[2] = Math.sin(senCube);
+    cubeTranslation[4] = Math.sin(senCube);
     cubeTranslation[5] = Math.cos(cosCube);
     drawScene();
   }
