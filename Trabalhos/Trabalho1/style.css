@@ -1,0 +1,19 @@
+@import url("https://webgl2fundamentals.org/webgl/resources/webgl-tutorials.css");
+body {
+  margin: 0;
+  text-align : right;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMrwMqleA_COb4HU_GUJ5Ulh7b1_f7wd6sYWGzcaVKQVAPWD54&s");
+}
+
+
+#ui {
+  color: darkslategrey;
+  font-family: Open Sans, sans-serif;
+  font-size: 0.6em;
+}
