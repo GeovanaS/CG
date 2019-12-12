@@ -14,8 +14,11 @@ var duracaoShake = 120;
 var tempoInicialShake = 0;
 var controlaPontuacao = new controlaPontuacao();
 var vidaManager = new vidaManager();
+
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
+var gl = canvas.getContext("webgl2");
+
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
 
@@ -44,6 +47,14 @@ function menuInicial() {
 	ctx.fillText("Pressione S para iniciar", canvas.width / 2, canvas.height/2 - 30); 
 }
 
+
+  webglLessonsUI.setupSlider("#Velocidade", {slide: updateVelocidade(), min:0.25, max: 2.50, step:0.0001});
+
+  function updateVelocidade(event,ui){
+     return function(event,ui){
+      velocidadeJogo += ui.value;
+     }
+  }
 
 function loop() {
 	if(nivel==1){
@@ -119,7 +130,6 @@ function verificaColisoes(){
 }
 
 //Balanca a tela quando o disparo é efetuado no invader
-//https://stackoverflow.com/questions/28023696/html-canvas-animation-which-incorporates-a-shaking-effect
 function preShake() {
   if (tempoInicialShake == 0) 
     return;
@@ -128,6 +138,7 @@ function preShake() {
       tempoInicialShake = 0; 
       return;
   }
+  //https://stackoverflow.com/questions/28023696/html-canvas-animation-which-incorporates-a-shaking-effect
   ctx.save();  
   var dx = Math.random()*10;
   var dy = Math.random()*10;

@@ -43,7 +43,7 @@ function controlaTeclas(e) {
 			   velocidadeJogo = 2.0;
 			   nivel = 0;
 			   inicializar();
-		    }
+		   }
 		   break;
 		case 80: //TECLA P
            if(nivel == 1){ //verifica se o jogo foi iniciado
