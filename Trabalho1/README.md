@@ -1,4 +1,4 @@
-# Trabalho 1
+# Trabalho 1 - Sistema Solar
  Implementação de um sistema solar utilizando WebGL2.
  Tendo como código base o programa do tutorial do webgl: https://webglfundamentals.org/webgl/lessons/webgl-scene-graph.html
 
