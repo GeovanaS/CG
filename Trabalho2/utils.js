@@ -40,7 +40,7 @@ function controlaTeclas(e) {
 		       nivel = 1;
 		    } else if (nivel == 3) { //verifica se o jogo foi reiniciado
 			   clearInterval(tempo);
-			   velocidadeJogo = 2.0;
+			   velocidadeJogo = 1.0;
 			   nivel = 0;
 			   inicializar();
 		   }
@@ -79,7 +79,7 @@ function disparo(x, y) {
 
 	this.cor = corDisparo; 
 	this.velocidade = 5;
-	this.som = new musica("shoot.wav");
+	this.som = new musica("shoot.wav"); //audio retirado do site https://www.classicgaming.cc/classics/space-invaders/sounds
 
 	this.atualizaDisparo = function() { 
 		this.y -= this.velocidade*velocidadeJogo; //atualiza posicao do tiro
@@ -109,7 +109,7 @@ function vidaManager() {
 	this.vida = 3;
 	
 	this.diminueVida= function(num) {
-		if(this.vida > 0){
+		if(this.vida >= 1){
 		   this.vida -= num;
 	    }else{
 	    	this.vida = 3;

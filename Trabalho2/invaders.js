@@ -57,7 +57,6 @@ function invader(x, y) {
 	this.verificaColisao = function() {
 		if (Ship.x < this.x + this.width && Ship.x + Ship.width > this.x && Ship.y < this.y + this.length && Ship.y + Ship.length > this.y) {
 		    //vidaManager =  diminueVida(1);
-		    //nivel = 2;
 			nivel = 3;
 		}
 	}

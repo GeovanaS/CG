@@ -1,17 +1,17 @@
 "use strict"
 
-var tempo;
 var corDisparo = "orange";
 var AumentaVelocidadeJogo = 0.25;
 var velocidadeJogo = 1.0;
 var nivel = 0; 
 var vida = 3;
-var Ship;
-var invaders;
 var tempoFase = 0;
 var level = 1;
 var duracaoShake = 120;
 var tempoInicialShake = 0;
+var Ship;
+var invaders;
+var tempo;
 var controlaPontuacao = new controlaPontuacao();
 var vidaManager = new vidaManager();
 
@@ -44,10 +44,10 @@ function menuInicial() {
     ctx.font="bold 24px Arial";
     ctx.fillStyle="blue";
 
-	ctx.fillText("Pressione S para iniciar", canvas.width / 2, canvas.height/2 - 30); 
+	ctx.fillText("Pressione S para iniciar e P para Pausar", canvas.width / 2, canvas.height/2 - 30); 
 }
 
-
+  //slider que aumenta a velocidade dos disparos
   webglLessonsUI.setupSlider("#Velocidade", {slide: updateVelocidade(), min:0.25, max: 2.50, step:0.0001});
 
   function updateVelocidade(event,ui){
@@ -62,7 +62,6 @@ function loop() {
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
     		
     controlaPontuacao.desenhaPontuacao();
-
     vidaManager.desenhaVidas();
 		atualizaNave(); //movimenta nave
     invaders.atualizaInvaders();
@@ -77,7 +76,8 @@ function loop() {
       nivel = 4;
       invadersDead = 0;
     }
-	}else if (nivel == 3) { //GAME OVER
+
+	}else if (nivel == 3) { //Game Over
     vida--;
     ctx.font="bold 64px Arial";
     ctx.fillStyle = "blue";
@@ -85,10 +85,10 @@ function loop() {
     ctx.font="bold 44px Arial";
     ctx.fillText("GAME 0VER", canvas.width/2, canvas.height/2- 120);
   
-  } else if (nivel == 4) { //NEXT LEVEL
+  } else if (nivel == 4) { //Proximo nivel
     if (tempoFase == 0) {
       level++;
-      velocidadeJogo += AumentaVelocidadeJogo;
+     //velocidadeJogo += AumentaVelocidadeJogo;
       tempoFase = new Date().getTime();
     }
 
@@ -137,12 +137,11 @@ function preShake() {
   if (deltaTime > duracaoShake) {
       tempoInicialShake = 0; 
       return;
-  }
-  //https://stackoverflow.com/questions/28023696/html-canvas-animation-which-incorporates-a-shaking-effect
+  }  
   ctx.save();  
-  var dx = Math.random()*10;
-  var dy = Math.random()*10;
-  ctx.translate(dx, dy);  
+  var x = Math.random()*12;
+  var y = Math.random()*12;
+  ctx.translate(x, y);  
 }
 
 function postShake() {
