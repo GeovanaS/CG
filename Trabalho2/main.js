@@ -43,8 +43,7 @@ function menuInicial() {
     ctx.fillText("Space Invaders", canvas.width / 2, canvas.height/2 - 80); 
     ctx.font="bold 24px Arial";
     ctx.fillStyle="blue";
-
-	ctx.fillText("Pressione S para iniciar e P para Pausar", canvas.width / 2, canvas.height/2 - 30); 
+    ctx.fillText("Pressione S para iniciar e P para Pausar", canvas.width / 2, canvas.height/2 - 30); 
 }
 
   //slider que aumenta a velocidade dos disparos
@@ -63,7 +62,7 @@ function loop() {
     		
     controlaPontuacao.desenhaPontuacao();
     vidaManager.desenhaVidas();
-		atualizaNave(); //movimenta nave
+   atualizaNave(); //movimenta nave
     invaders.atualizaInvaders();
     preShake(); 
     desenhaNave();
@@ -123,8 +122,8 @@ function verificaColisoes(){
         var disparo = Ship.disparos[i];
         var colisao = invaders.verificaColisoes(disparo.x, disparo.y, disparo.width, disparo.length);
         if(colisao == true){ //verifica se ocorreu alguma colisão
- 		    // 	delete Ship.disparos[i];  
-			    Ship.disparos.splice(i, 1); //remove disparo i da lista
+ 	//delete Ship.disparos[i];  
+	  Ship.disparos.splice(i, 1); //remove disparo i da lista
         }
     }
 }
